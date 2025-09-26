@@ -1,6 +1,7 @@
 
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
 
 
 app.get("/", (req, res) => {
@@ -8,8 +9,8 @@ app.get("/", (req, res) => {
 });
 
 
-const HOST = "localhost";
-const PORT = 8080;
+const HOST = process.env.HOST || "localhost";
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(`trial app listening on ${HOST}:${PORT}`);
